@@ -41,5 +41,22 @@ var baseMaps = {
     "Outdoors": lightMap
 };
 
-//
-var myMap
+// Creating map and passing the darkMap and earthquake_layer as initial load layers
+var myMap = L.map("map", {
+    center: [37.09, -95.71],
+    zoom: 2,
+    layers: [darkMap, earthquake_layer]
+});
+
+// Create a Layer Control + Pass in baseMaps and overlayMaps + Add the Layer Control to the Map
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+// Harnessing D3 to call and retrieve earthquake data
+d3.json(earthquakesURL, function(earthquakeDataset) {
+// Function to calculate the size of the marker, using the earthquak magnitude
+  function markerSize(magnitude) {
+      if (magnitude === 0) {
+        return 1;
+      }
+      return magnitude * 3;
+  }
