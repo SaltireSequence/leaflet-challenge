@@ -22,8 +22,8 @@ var darkMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
 });
 // Defining Variable for storing grayScale TileLayer
 var grayscaleMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    maxZoom: 18,
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+    maxZoom: 18,
     id: "mapbox.light",
     accessToken: API_KEY
 });
@@ -140,7 +140,7 @@ the corresponding earthquake */
 
       for (var i = 0; i < magnitudeLevels.length; i++) {
           div.innerHTML +=
-              '<i style="background: ' + colorChoise(magnitudeLevels[i] + 1) + '"></i> ' +
+              '<i style="background: ' + colorChoice(magnitudeLevels[i] + 1) + '"></i> ' +
               magnitudeLevels[i] + (magnitudeLevels[i + 1] ? '&ndash;' + magnitudeLevels[i + 1] + '<br>' : '+');
       }
       return div;
