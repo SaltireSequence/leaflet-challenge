@@ -20,13 +20,6 @@ var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
     id: "mapbox.satellite",
     accessToken: API_KEY
 });
-// Defining Variable for storing grayScale TileLayer
-var grayscaleMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.light",
-    accessToken: API_KEY
-});
 
 // Defining Variable to store Overlay Layers
 var overlayMaps = {
@@ -37,7 +30,6 @@ var overlayMaps = {
 // Defining Variable to store base layers
 var baseMaps = {
     "Satellite": satelliteMap,
-    "Grayscale": grayscaleMap,
     "Outdoors": lightMap
 };
 
