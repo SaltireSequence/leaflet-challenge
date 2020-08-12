@@ -104,3 +104,10 @@ earthquakeDataset */
           return L.circleMarker(latlng);
       },
       style: styleInfo,
+
+/* Function to give each feature a pop-up window, describing the details of
+the corresponding earthquake */
+      onEachFeature: function(feature, layer) {
+          layer.bindPopup("<h4>Location: " + feature.properties.place +
+          "</h4><hr><p>Date & Time: " + new Date(feature.properties.time) +
+          "</p><hr><p>Magnitude: " + feature.properties.mag + "</p>");
