@@ -145,5 +145,5 @@ the corresponding earthquake */
       }
       return div;
   };
-      chartLegend.addTo(myMap);
+  chartLegend.addTo(myMap);
 });
