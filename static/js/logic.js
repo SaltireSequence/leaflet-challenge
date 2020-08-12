@@ -54,7 +54,7 @@ Control to the Map */
 L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 // Harnessing D3 to call and retrieve earthquake data
-d3.json(earthquakesURL, function(earthquakeDataset) {
+d3.json(URL_earthquakes, function(earthquakeDataset) {
 
 // Function to calculate the size of the marker, using the earthquak magnitude
   function markerSize(magnitude) {
@@ -111,3 +111,39 @@ the corresponding earthquake */
           layer.bindPopup("<h4>Location: " + feature.properties.place +
           "</h4><hr><p>Date & Time: " + new Date(feature.properties.time) +
           "</p><hr><p>Magnitude: " + feature.properties.mag + "</p>");
+      }
+
+// Adds the earthquakeDataset to the earthquakes LayerGroup
+  }).addTo(earthquake_layer);
+  // Add earthquakes Layer to the Map
+  earthquake_layer.addTo(myMap);
+
+  // Harnessing D3 to call and retrieve techtonic URL_plates
+  d3.json(URL_plates, function(plateData) {
+      // Create a GeoJSON Layer the plateData
+      L.geoJson(plateData, {
+          color: "#DC143C",
+          weight: 2
+      // Adding techtonic plates data to tectonicPlates LayerGroups
+      }).addTo(techtonicplates_layer);
+      // Add tectonicPlates Layer to the Map
+      techtonicplates_layer.addTo(myMap);
+  });
+
+  // Set Up Legend
+  var chartLegend = L.control({ position: "bottomright" });
+  chartLegend.onAdd = function() {
+      var div = L.DomUtil.create("div", "info legend"),
+      magnitudeLevels = [0, 1, 2, 3, 4, 5];
+
+      div.innerHTML += "<h3>Magnitude</h3>"
+
+      for (var i = 0; i < magnitudeLevels.length; i++) {
+          div.innerHTML +=
+              '<i style="background: ' + colorChoise(magnitudeLevels[i] + 1) + '"></i> ' +
+              magnitudeLevels[i] + (magnitudeLevels[i + 1] ? '&ndash;' + magnitudeLevels[i + 1] + '<br>' : '+');
+      }
+      return div;
+  };
+      chartLegend.addTo(myMap);
+});
