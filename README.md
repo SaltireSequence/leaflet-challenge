@@ -1,5 +1,7 @@
 # Leaflet Homework - Visualizing Data with Leaflet
 
+## Link to deployed app: https://saltiresequence.github.io/leaflet/index.html
+
 ## Background
 
 ![1-Logo](Images/1-Logo.png)
