@@ -83,15 +83,15 @@ based on the magnitude of the earthquake */
   function colorChoice(magnitude) {
       switch (true) {
       case magnitude > 5:
-          return "#581845";
+          return "#f06b6b";
       case magnitude > 4:
-          return "#900C3F";
+          return "#f0a76b";
       case magnitude > 3:
-          return "#C70039";
+          return "#f3db4d";
       case magnitude > 2:
-          return "#FF5733";
+          return "#e1f34d";
       case magnitude > 1:
-          return "#FFC300";
+          return "#b7f34d";
       default:
           return "#DAF7A6";
       }
